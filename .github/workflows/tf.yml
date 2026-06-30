@@ -1,18 +1,20 @@
+# A Workflow is an automated process defined in a YAML file that tells GitHub Actions what tasks to perform.
+
 name: EC2 pipeline
 
-on:
-  push:
+on:  # An Event is an action that starts (triggers) the workflow.
+  push: # When someone pushes code to the main branch, start this workflow.
     branches:
       - main
 
 env:
   AWS_REGION: "ap-south-1"
 
-jobs:
+jobs:  # A Job is a group of steps that execute together on a runner.
   terraform:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04  # A Runner is the machine/server where GitHub Actions executes your jobs.
 
-    steps:
+    steps: # A Step is an individual task inside a job.
       - name: checkout folder
         uses: actions/checkout@v4
 
